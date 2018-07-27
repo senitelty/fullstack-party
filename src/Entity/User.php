@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 class User extends BaseUser
 {
     /**
-     * @var string $id
+     * @var int $id
      *
      * @ORM\Id
      * @ORM\Column(name="id", type="bigint")
@@ -68,7 +68,7 @@ class User extends BaseUser
     }
 
     /**
-     * @param string $github_id
+     * @param string $githubId
      * @return User
      */
     public function setGithubId(string $githubId): User

@@ -27,9 +27,9 @@ class DefaultController extends Controller
         $user = $this->getUser();
         if ($user) {
             return $this->getDashboard($request);
-        } else {
-            return $this->render('login.html.twig');
         }
+
+        return $this->render('login.html.twig');
     }
 
     private function getDashboard(Request $request)

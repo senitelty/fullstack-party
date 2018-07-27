@@ -5,7 +5,9 @@ namespace App\Controller;
 use HWI\Bundle\OAuthBundle\Security\Core\Exception\AccountNotLinkedException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Security;
 
@@ -23,7 +25,7 @@ class SecurityController extends Controller
      * @Route("/login")
      *
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return RedirectResponse|Response
      */
     public function login(Request $request)
     {
@@ -49,6 +51,7 @@ class SecurityController extends Controller
                 $error = $error->getMessage();
             }
         }
+
         return $this->render(
             'login.html.twig',
             [
@@ -58,8 +61,6 @@ class SecurityController extends Controller
     }
 
     /**
-     * Get the security error for a given request.
-     *
      * @param Request $request
      *
      * @return string|\Exception
