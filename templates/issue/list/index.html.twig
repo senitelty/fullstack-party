@@ -4,28 +4,23 @@
     <div class="row content">
 
         <div class="col-sm-6">
-                <div class="row mt-3 mb-3 text-dark font-weight-bold">
-                    <div class="col-md-6 text-right">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i> <span
-                                class="open-issues-count">{{ openCount }} Open</span>
-                    </div>
-                    <div class="col-md-6">
-                        <i class="fa fa-check-circle-o" aria-hidden="true"></i> <span
-                                class="closed-issues-count">{{ closedCount }} Closed</span>
-                    </div>
+            <div class="row mt-3 mb-3 text-dark font-weight-bold">
+                <div class="col-md-6 text-right">
+                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i> <span
+                            class="open-issues-count">{{ openCount }} Open</span>
                 </div>
+                <div class="col-md-6">
+                    <i class="fa fa-check-circle-o" aria-hidden="true"></i> <span
+                            class="closed-issues-count">{{ closedCount }} Closed</span>
+                </div>
+            </div>
             <div class="issues-left scroll">
                 <div class="col-md-12">
-                    {#{% for item in issues %}#}
-                        {% for item in issues %}
-                            <div class="mt-4 mb-4">
-                                {% include 'issue/list/list_item.html.twig' with { 'item': item } %}
-                            </div>
-                            <div class="mt-4 mb-4">
-                                {% include 'issue/list/list_item.html.twig' with { 'item': item } %}
-                            </div>
-                        {% endfor %}
-                    {#{% endfor %}#}
+                    {% for item in issues %}
+                        <div class="mt-4 mb-4">
+                            {% include 'issue/list/list_item.html.twig' with { 'item': item } %}
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="row mt-3">
