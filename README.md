@@ -34,5 +34,7 @@ If you found this task it means we are looking for you!
 - yarn install
 - composer install
 - yarn run encore dev
-- bin/console server:run
+- php bin/console doctrine:database:create
+- php bin/console doctrine:schema:update --force
+- php bin/console server:run
 ```
