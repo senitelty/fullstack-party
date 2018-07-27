@@ -33,5 +33,6 @@ If you found this task it means we are looking for you!
 - configure database and github in .env
 - yarn install
 - composer install
+- yarn run encore dev
 - bin/console server:run
 ```
