@@ -1,0 +1,23 @@
+.page-item.active {
+  .page-link {
+    &.rounded {
+      border-radius: 50%;
+    }
+    &.link-green {
+      background-color: $green;
+      border-color: $green;
+      color: white;
+    }
+  }
+}
+.page-item {
+  .page-link {
+    &.round {
+      border-radius: 50%!important;
+    }
+    &.link-green {
+      background-color: $white;
+      color: $dark;
+    }
+  }
+}

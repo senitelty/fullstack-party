@@ -1,0 +1,40 @@
+hwi_oauth:
+    connect:
+        account_connector: oauth_aware.fos_user_provider
+#        confirmation: true
+
+    # https://github.com/hwi/HWIOAuthBundle/blob/master/Resources/doc/2-configuring_resource_owners.md
+    resource_owners:
+        google:
+            type:                google
+            client_id:           "%env(GOOGLE_APP_ID)%"
+            client_secret:       "%env(GOOGLE_APP_SECRET)%"
+            scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+            paths:
+                email:           email
+                profilepicture:  picture
+            options:
+                access_type: offline
+                display: popup
+                csrf: true
+        github:
+            type:                github
+            client_id:           '%env(GITHUB_ID)%'
+            client_secret:       '%env(GITHUB_SECRET)%'
+            scope:               'user:email,public_repo,read:user,repo,gist'
+            paths:
+                email:           email
+                profilepicture:  picture
+            options:
+                csrf: true
+    # list of names of the firewalls in which this bundle is active, this setting MUST be set
+    firewall_names: [main]
+    # optional FOSUserBundle integration
+    fosub:
+        # try 30 times to check if a username is available (foo, foo1, foo2 etc)
+        username_iterations: 30
+
+        # mapping between resource owners (see below) and properties
+        properties:
+            github: githubId
+            google: googleId

@@ -1,0 +1,19 @@
+login:
+    login_with_button: Login With
+    login_button: Login
+
+logout: Logout
+
+general:
+    back_to_list: Back to list
+
+comments: comments
+comment: comment
+
+issues:
+    right_title: Full Stack Developer Task
+    list:
+        by: by
+        opened: opened
+    issue:
+        openend_this_issue: opened this issue

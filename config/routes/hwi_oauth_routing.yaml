@@ -1,0 +1,20 @@
+hwi_oauth_login:
+    controller: "HWIOAuthBundle:Connect:connect"
+    path: /login
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix:   /connect
+
+google_login:
+    path: /login/check-google
+
+github_login:
+    path: /login/check-github

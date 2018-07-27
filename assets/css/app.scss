@@ -1,0 +1,18 @@
+@import '~bootstrap/scss/bootstrap';
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/v4-shims";
+
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
+@import './variables';
+@import './global';
+@import './login';
+@import './issues_list';
+@import './font';
+@import "./badges";
+@import "./shadow";
+@import "./pagination";
+@import "./scroll";

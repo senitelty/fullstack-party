@@ -1,0 +1,10 @@
+fos_user:
+  db_driver: orm
+  firewall_name: secure_area
+  user_class: App\Entity\User
+  from_email:
+      address: "hello@youmail.com"
+      sender_name: "Sender Name"
+  registration:
+      confirmation:
+          enabled: false

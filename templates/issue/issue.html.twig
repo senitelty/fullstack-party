@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="row content">
+
+        <div class="container">
+            <div class="justify-content-md-center">
+
+                <span class="row">
+                <a class="mt-4 text-green" href="{{ path('app_default_dashboard') }}">
+                <i class="fas fa-arrow-left"></i> {{ 'general.back_to_list'|trans }}
+                </a>
+                </span>
+                <div class="row">
+                    <div class="card shadow-sm mt-4 col-md-12">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="d-flex bd-highlight col-md-12 mb-2 mt-2">
+                                    <div class="align-self-center bd-highlight col-md-6">
+                                        <div class="col-md-12 float-md-right">
+                                            <h2 class="card-title">
+                                                <a class="text-black">
+                                                    {{ issue.title }}
+                                                    <span class="text-grey">#{{ issue.number }}</span>
+                                                </a>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="d-flex bd-highlight col-md-12 mb-2">
+                                    <div class="align-self-center bd-highlight col-md-6">
+                                        <div class="col-md-12 float-md-right">
+                                            <p class="card-title text-grey">
+                                                <span class="badge badge-light-green">
+                                                    {% if issue.open %}
+                                                        <i class="fa fa-exclamation-circle f-size-16 p-1"
+                                                           aria-hidden="true"></i>
+                                                        <span class="f-size-16 font-weight-normal mr-2">{{ issue.state }}</span>
+                                                    {% else %}
+                                                        <i class="fa fa-check-circle-o f-size-16 p-1"
+                                                           aria-hidden="true"></i>
+                                                        <span class="f-size-16 font-weight-normal mr-2">{{ issue.state }}</span>
+                                                    {% endif %}
+                                                </span>
+                                                <span class="text-green ml-3">{{ issue.user.username }}</span> {{ 'issues.issue.openend_this_issue'|trans }} {{ issue.createdAt|ago }}
+                                                · {{ issue.comments }}
+                                                {% if issue.comments > 1 %}
+                                                    {{ 'comments'|trans }}
+                                                {% else %}
+                                                    {{ 'comment'|trans }}
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scroll col-md-12">
+
+                    {% for comment in comments %}
+
+                        <div class="row pl-5">
+                            <div class="col-md-1 mt-4">
+                                <img height="100%" width="100%" class="img-fluid rounded-circle"
+                                     src="{{ comment.user.avatarUrl }}"/>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="card shadow-sm mt-4">
+                                    <div class="card-header">
+                                        <span class="owner">{{ comment.user.username }}</span> {{ comment.createdAt|date('Y-m-d') }}
+                                    </div>
+                                    <div class="card-body">
+                                        {{ comment.body }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

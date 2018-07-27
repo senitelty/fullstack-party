@@ -27,3 +27,11 @@ If you found this task it means we are looking for you!
 - Structure! WE LOVE STRUCTURE!
 - Maybe You have an idea how it should interact with users? Do it! Its on you!
 - Have fun!
+
+## Set up
+```
+- configure database and github in .env
+- yarn install
+- composer install
+- bin/console server:run
+```

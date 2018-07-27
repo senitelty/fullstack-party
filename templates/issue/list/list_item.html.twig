@@ -1,0 +1,54 @@
+<div class="card shadow-sm">
+    <div class="card-body">
+        <div class="row">
+            <div class="d-flex bd-highlight col-md-12 mb-2 mt-2">
+                <div class="align-self-center bd-highlight col-md-10">
+                    <div class="mt-1 col-md-1 float-md-left">
+                        {% if item.open %}
+                            <i class="fa fa-exclamation-circle f-size-16 text-green" aria-hidden="true"></i>
+                        {% else %}
+                            <i class="fa fa-check-circle-o f-size-16 text-green" aria-hidden="true"></i>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-11 float-md-right">
+                        <h5 class="card-title">
+                            <a class="text-black"
+                               href="{{ path('app_issue_viewissue', {'owner': item.user.username, 'repo': item.repository.name, 'number': item.number}) }}">
+                                {{ item.title }}
+                            </a>
+                            {% for label in item.labels %}
+                                {% if label.color == 'ffffff' %}
+                                    {% set textColor = '000000' %}
+                                {% else %}
+                                    {% set textColor = 'ffffff' %}
+                                {% endif %}
+                                <span class="badge font-weight-normal f-size-12 shadow-sm"
+                                      style="background-color: {{ "#"~label.color }}; color: {{ "#"~textColor }};">
+                                    {{ label.name }}
+                                </span>
+                            {% endfor %}
+                        </h5>
+                    </div>
+                </div>
+                <div class="align-self-center bd-highlight col-md-2">
+                    <div class="float-right font-weight-bold f-size-16 text-grey">
+                        <i class="far fa-comment-alt"></i> {{ item.comments }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="d-flex bd-highlight col-md-12 mb-2">
+                <div class="align-self-center bd-highlight col-md-6">
+                    <div class="col-md-11 float-md-right">
+                        <p class="card-title text-grey">
+                            #{{ item.number }} {{ 'issues.list.opened'|trans }} {{ item.createdAt|ago }} {{ 'issues.list.by'|trans }}
+                            <span class="text-green">{{ item.user.username }}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
