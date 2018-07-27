@@ -39,7 +39,7 @@ class DefaultController extends Controller
         $open = $githubDataManager->getIssueCountByState(Issue::STATE_OPEN);
         $closed = $githubDataManager->getIssueCountByState(Issue::STATE_CLOSED);
         $page = $request->query->get('page');
-        $issuePager = $githubDataManager->getIssues($page ? $page : 1);
+        $issuePager = $githubDataManager->getIssues($page ?? 1);
 
         return $this->render(
             'issue/list/index.html.twig',
